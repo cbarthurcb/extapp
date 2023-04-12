@@ -1,0 +1,45 @@
+
+<ion-app>  
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header>HMMDOLC</ion-list-header>
+          <ion-note>Protótipo 1.5</ion-note>
+
+          <ion-menu-toggle auto-hide="false" >
+            <ion-item lines="none" detail="false" (click)="menu()">
+                <ion-icon slot="start" name="home-outline"></ion-icon>
+                <ion-label>Página Inicial</ion-label>
+            </ion-item>
+            <ion-item lines="none" detail="false" (click)="historico()">
+              <ion-icon slot="start" name="hourglass-outline"></ion-icon>
+              <ion-label>Histórico</ion-label>
+            </ion-item>
+            <ion-item lines="none" detail="false" (click)="cadastro()">
+                <ion-icon slot="start" name="person-add-outline"></ion-icon>
+                <ion-label>Cadastro</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <br>
+        <br>
+        <br>
+        <ion-note size="full">Este aplicativo foi desenvolvido por:<br><br>
+        <center>
+            <a href="https://www.linkedin.com/in/arthurcoelhobastos/">Arthur Coelho<ion-icon class="icon-in" slot="start" name="logo-linkedin"></ion-icon></a><br><br>
+            <a href="https://www.linkedin.com/in/eric-calefi-35a153155/">Eric Calefi<ion-icon class="icon-in" slot="start" name="logo-linkedin"></ion-icon></a><br><br>
+            <a href="https://www.linkedin.com/in/marcelo-melo-5a248522">Marcelo Melo<ion-icon class="icon-in" slot="start" name="logo-linkedin"></ion-icon></a><br><br>
+            <a href="https://www.linkedin.com/in/pascoal-neto-9bb9ba210/">Pascoal Neto<ion-icon class="icon-in" slot="start" name="logo-linkedin"></ion-icon></a><br><br>
+            <a href="https://www.linkedin.com/in/viniciuslameira">Vinicius Lameira<ion-icon class="icon-in" slot="start" name="logo-linkedin"></ion-icon></a><br><br>
+            <a href="mailto:wiltonrneto@gmail.com">Wilton Neto<ion-icon class="icon-in" slot="start" name="mail"></ion-icon></a><br><br>
+        </center>
+        </ion-note>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content">
+    </ion-router-outlet>
+  </ion-split-pane>
+
+
+</ion-app>

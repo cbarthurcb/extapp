@@ -1,0 +1,35 @@
+.flex-center{
+    flex-direction: column;
+}
+
+.button-round{
+    height: 60px;
+    padding-top: 20px;
+    width: 60%;
+    --background: var(--ion-item-background);
+    max-width: 300px;
+    --border-radius:15px;
+    font-size: 22px;
+}
+
+#logo{
+    height: 30%;
+    padding-bottom: 5%;
+    width: 60%;
+    max-width: 250px;
+    max-height: 250px;
+}
+
+#nome{
+    max-width: 80%;
+    text-align: center;
+    color: black;
+}
+
+.cadastro{
+    --background: #565656!important;
+}
+
+.historico{
+    --background: #45b6cc!important;
+}

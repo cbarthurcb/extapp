@@ -1,0 +1,100 @@
+.center{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    color: #873d29;
+}
+
+ion-item-divider{
+    min-height: 1px;
+    height: 1pt;
+    width: 80%; 
+}
+
+p{
+    margin: 20px 0px;
+}
+
+canvas{
+    max-width: 100%;
+}
+
+.grid-last, .grid-score{
+    display: unset;
+    margin: 15px;
+}
+
+.nome{
+    color: #45b6cc;
+}
+
+.second{
+    color: #45b6cc;
+    display: flex;
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+#score-value{
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    margin: 0;
+    align-items: center;
+}
+
+.row-score{
+    justify-content: space-between;
+}
+
+.score-value{
+    height: 60px;
+    background: #565656;
+    border-radius:30px;
+    width: 15%;
+    color: white;
+    max-width: 90px;
+    margin-left: 20px;
+}
+.score-text{
+    color: #97cfc1;
+    font-size: 30px;
+    width: 50%;
+    max-width: 145px;
+}
+
+.first{
+    color: #97cfc1;
+}
+
+ion-grid{
+    width: 100%;
+    max-width:286px;
+    padding: 0px;
+    margin: 5px 0px;
+}
+
+ion-col, ion-row{
+    align-items: center;
+    text-align: left;
+}
+
+.grid-last ion-row, .grid-score ion-row{
+    margin: 0px 40px;
+}
+ion-label{
+    color:#45b6cc!important;
+}
+
+ion-card{
+    border-radius: 12px;
+    --background:  #fcf5e3;
+    --ion-item-background: #fcf5e3;
+}
+  
+
+.nome{
+    font-size:250%;
+}

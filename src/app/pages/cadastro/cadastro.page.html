@@ -1,0 +1,127 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Cadastro</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <ion-segment [(ngModel)]="selectedView">
+        <ion-segment-button value="Pacientes">
+          <ion-label>Novo Paciente</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="MEWS">
+          <ion-label>Nova Medição</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="selectedView">
+      <div *ngSwitchCase="'Pacientes'">
+        <form [formGroup]="pacienteForm" (ngSubmit)="onSubmitPaciente()">
+        <ion-card>
+            <ion-card-header>
+              <ion-card-title>Dados Pessoais:</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                  <ion-item>
+                      <ion-label position="stacked">Nome do Paciente</ion-label>
+                      <ion-input formControlName="nome" type="text" required></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="stacked">RH do Paciente</ion-label>
+                      <ion-input formControlName="rh" type="number" required></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="stacked">Idade do Paciente</ion-label>
+                      <ion-input formControlName="age" type="number" required></ion-input>
+                  </ion-item>
+                  <ion-list lines="none">
+                      <ion-list-header>
+                          <ion-label>Sexo</ion-label>
+                      </ion-list-header>
+                      <ion-radio-group formControlName="gender" required>
+                        <ion-item>
+                          <ion-label>Masculino</ion-label>
+                          <ion-radio slot="start" value="M"></ion-radio>
+                        </ion-item>
+                    
+                        <ion-item>
+                          <ion-label>Feminino</ion-label>
+                          <ion-radio slot="start" value="F"></ion-radio>
+                        </ion-item>
+                      </ion-radio-group>
+                  </ion-list>            
+            </ion-card-content>
+        </ion-card>
+        <ion-button class="button-round" size="full" type="submit">
+            Cadastrar Paciente
+        </ion-button>
+        </form>
+      </div>
+
+      <div *ngSwitchCase="'MEWS'">
+        <form [formGroup]="mewsForm" (ngSubmit)="onSubmitMews()">
+          <ion-card>
+              <ion-card-header>
+                  <ion-card-title>Selecionar Paciente:</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item lines="none">
+                    <ion-label>Paciente:</ion-label>
+                    <ion-select ok-text="OK" cancel-text="Voltar" [interfaceOptions]="{cssClass: 'cadpop'}" interface= "popover" formControlName="paciente" required>
+                      <ion-select-option *ngFor="let paciente of allpatients" value="{{paciente.id}}">
+                        {{paciente.nome}}
+                      </ion-select-option>
+                    </ion-select>
+                </ion-item>
+              </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+              <ion-card-header>
+                  <ion-card-title>Sinais Vitais:</ion-card-title>
+              </ion-card-header>
+            <ion-card-content>
+              <ion-list lines="none" class="listamews">
+              
+                <ion-item class="nowrap">
+                  <ion-label>Frequência Cardíaca (bpm)</ion-label>
+                  <ion-input formControlName="fc" type="number" required></ion-input>
+                </ion-item>
+              
+                <ion-item class="nowrap">
+                      <ion-label>Pressão Arterial Sistólica (mm/Hg)</ion-label>
+                      <ion-input formControlName="pas" type="number" required></ion-input>
+                </ion-item>
+
+                <ion-item class="nowrap">
+                      <ion-label>Frequência Respiratória (rpm)</ion-label>
+                      <ion-input formControlName="fr" type="number" required></ion-input>
+                </ion-item>
+
+                <ion-item class="nowrap">
+                    <ion-label>Temperatura Corporal (°C)</ion-label>
+                    <ion-input formControlName="tc" type="number" required></ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label>Estado do SNC</ion-label>
+                    <ion-select placeholder="" lines="none" [interfaceOptions]="{cssClass: 'cadpop'}" formControlName="sncs" required interface="popover" >
+                          <ion-select-option  *ngFor="let question of SNCS" value="{{question.value}}">{{question.value}}</ion-select-option>
+                      </ion-select>
+                </ion-item>
+
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-button class="button-round" type= "submit" size="full">
+              Salvar
+          </ion-button>
+        </form>
+      </div>
+    </div>
+
+    
+</ion-content>

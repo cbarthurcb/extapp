@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      <ion-title>Score</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment [(ngModel)]="selectedView">
+      <ion-segment-button value="Score">
+        <ion-label>Score</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Anteriores">
+        <ion-label>Histórico</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Gráfico">
+          <ion-label>Gráfico</ion-label>
+      </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="selectedView">
+    <div *ngSwitchCase="'Score'">
+      <div class="center" *ngFor="let patient of scores ; first as isFirst">
+        <div *ngIf="isFirst">
+            <div class="nome">
+                <p>{{name}}</p>
+            </div> 
+            <ion-grid class="grid-score">
+              <ion-row class="row-score">
+                  <ion-col class="score-text">Score:</ion-col>
+                  <ion-col class="score-value" ><p id="score-value">{{patient.mews}}</p><ion-icon name="{{instrucion}}"></ion-icon></ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-grid class="grid-last">
+                <ion-row>
+                    <ion-col class="first last-text">Última Atualização:</ion-col>
+                    <ion-col class="second">{{patient.date}}</ion-col>
+                  </ion-row>
+            </ion-grid>
+            <div class="center">
+              <ion-list lines="none">
+                <ion-item>
+                  <ion-grid>
+                      <ion-row>
+                          <ion-col class="first">Frequência Cardíaca:</ion-col>
+                          <ion-col class="second">{{patient.fc}} bpm</ion-col>
+                        </ion-row>
+                  </ion-grid>
+                </ion-item>
+                <ion-item>
+                  <ion-grid>
+                    <ion-row>
+                        <ion-col class="first">PA Sistólica:</ion-col>
+                        <ion-col class="second">{{patient.pas}} mm/Hg</ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+                <ion-item>
+                  <ion-grid>
+                    <ion-row>
+                        <ion-col class="first">Frequência Respiratória:</ion-col>
+                        <ion-col class="second">{{patient.fr}} rpm</ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+                <ion-item>
+                  <ion-grid>
+                    <ion-row>
+                        <ion-col class="first">Temperatura Corporal:</ion-col>
+                        <ion-col class="second">{{patient.tc}} °C</ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+                <ion-item>
+                  <ion-grid>
+                    <ion-row>
+                        <ion-col class="first">Estado do SNC:</ion-col>
+                        <ion-col class="second">{{patient.sncs}}</ion-col>
+                    </ion-row>
+                  </ion-grid>  
+                </ion-item>
+              </ion-list>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'Anteriores'">
+      <ion-list *ngFor="let mews of scores" lines="none">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+                <ion-col class="score-value" ><p id="score-value">{{mews.mews}}</p></ion-col>
+                <ion-col class="second">{{mews.date}}</ion-col>
+            </ion-row>
+          </ion-grid>  
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'Gráfico'">
+          <ion-card class="welcome-card">
+            <ion-card-header>
+              <ion-card-title>Últimas Medições</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <canvas baseChart [datasets]="chartData" [chartType]="chartType" [labels]="chartLabels"></canvas>
+            </ion-card-content>
+          </ion-card>
+    </div>
+  </div>
+  
+</ion-content>

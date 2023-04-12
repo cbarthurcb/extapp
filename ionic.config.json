@@ -1,0 +1,7 @@
+{
+  "name": "ext-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

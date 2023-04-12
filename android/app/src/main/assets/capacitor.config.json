@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ext-app",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

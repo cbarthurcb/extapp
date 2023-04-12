@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Bem vindo!</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="flex-center">
+      <ion-img id="logo" src="assets/img/logo_spdm.png">
+      </ion-img>
+      <p id="nome">Hospital e Maternidade Municipal Dr. Odelmo Leão Carneiro</p>
+      <ion-button class="button-round cadastro" size="full" (click)="cadastro()">
+          Cadastrar
+      </ion-button>
+      <ion-button class="button-round historico" size="full" (click)="historico()">
+          Histórico
+      </ion-button>
+  </div>
+</ion-content>
